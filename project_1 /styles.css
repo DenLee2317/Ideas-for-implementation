@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap'); 
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  background-color: #0A2647;
+  height: 100vh; /* тело занимает 100% пространства */
+  display: flex; /* для корректного выравнивания слайда */
+  justify-content: center; /* выравнивание по центру - горизонт*/
+  align-items: center; /* выравнивание по центру - вертикали */
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  padding: 0 20px;
+}
+
+.slide {
+height: 80vh;
+border-radius: 20px;/* закругление слайдов*/
+margin: 10px; /* отступы между слайдами */
+cursor:pointer;/* показывает что можно взаимодействовать с данным элементом*/
+color: #fff;
+flex: 1;
+background-size: cover; /* размер фона - обложка */
+background-position: center;
+background-repeat: no-repeat;/* указавем будет повторятся фоное изображение, если не указана позиция,изобр.помещ. в верхн.лев.угол элемента см.(https://www.w3schools.com/cssref/pr_background-repeat.php)*/
+position: relative; /*метод позиционирования - относительный*/
+
+transition: all 500ms ease-in-out; /*добавили анимацию относительно активного элемента*/
+}
+
+.slide h3{
+  position: absolute;
+  font-size: 24px;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0; /* определяет непрозрачность/прозрачность элемента*/
+}
+
+/* работа с анимациями (создание активного элемента + работа со стилистикой)*/
+
+.slide.active {
+  flex: 10; /*задаем гибкий размер активного элемента*/
+}
+/*когда слайд активен, применим опредленный стиль согл. заданных параметров*/
+.slide.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.5s;/* добавим анимацию - 1. указываем св-во 2.продолжительность и 3.анимация разгон - движение 4.появление текста с задержкой*/
+}
